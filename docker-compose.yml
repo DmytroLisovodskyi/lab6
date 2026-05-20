@@ -1,1 +1,20 @@
+version: '3.8'
 
+services:
+
+  product-service-08:
+    build: ./product_service
+    container_name: product-service-08
+
+    ports:
+      - "8008:8000"
+
+  order-service-08:
+    build: ./order_service
+    container_name: order-service-08
+
+    ports:
+      - "9008:8000"
+
+    depends_on:
+      - product-service-08
